@@ -5,15 +5,15 @@
   
   <title>Contest1055-ProblemA-跳跃忍者 | Hexo blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ProblemA 跳跃忍者">
+  <meta name="description" content=".heimu,.heimu a{      background-color: #252525;      color:#252525;      text-shadow: none;  }::selection{      background:#9ab0c0;      color:#fff;     }     .heimu:hover,.heimu:hover a{      tra">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Contest1055-ProblemA-跳跃忍者">
 <meta property="og:url" content="https://orz001.github.io/OIblog/2020/02/27/66code-contest1055-ProblemA/index.html">
 <meta property="og:site_name" content="Hexo blog">
-<meta property="og:description" content="ProblemA 跳跃忍者">
+<meta property="og:description" content=".heimu,.heimu a{      background-color: #252525;      color:#252525;      text-shadow: none;  }::selection{      background:#9ab0c0;      color:#fff;     }     .heimu:hover,.heimu:hover a{      tra">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-27T09:25:14.709Z">
-<meta property="article:modified_time" content="2020-02-29T02:29:17.755Z">
+<meta property="article:modified_time" content="2020-02-29T03:16:29.589Z">
 <meta property="article:author" content="Hassium">
 <meta property="article:tag" content="66code">
 <meta property="article:tag" content="Contest1055">
@@ -111,7 +111,21 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="ProblemA-跳跃忍者"><a href="#ProblemA-跳跃忍者" class="headerlink" title="ProblemA 跳跃忍者"></a><a href="http://66code.vip/problem.php?cid=1055&pid=0" target="_blank" rel="noopener">ProblemA</a> 跳跃忍者</h1><a id="more"></a>
+        <style>
+  .heimu,.heimu a{
+     background-color: #252525;
+     color:#252525;
+     text-shadow: none;
+ }::selection{
+     background:#9ab0c0;
+     color:#fff;
+    }
+    .heimu:hover,.heimu:hover a{
+     transition:color .13s linear;     color:#fff;
+}
+</style>
+
+<h1 id="ProblemA-跳跃忍者"><a href="#ProblemA-跳跃忍者" class="headerlink" title="ProblemA 跳跃忍者"></a><a href="http://66code.vip/problem.php?cid=1055&pid=0" target="_blank" rel="noopener">ProblemA</a> 跳跃忍者</h1><a id="more"></a>
 
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>跳跃忍者很能跳，因此他很嘚瑟。他每次跳需要消耗能量，每跳1米就会消耗1点能量，如果他有很多能量就能跳很高。</p>
 <p>  他为了收集能量，来到了一个神秘的地方，这个地方凡人是进不来的。在这里，他的正上方每<code>100</code>米处就有一个能量球（也就是这些能量球位于海拔<code>100</code>，<code>200</code>，<code>300</code>……米处），每个能量球所能提供的能量是不同的，一共有<code>N</code>个能量球（也就是最后一个能量球在 <code>N*100</code> 米处）。他为了想收集能量，想跳着吃完所有的能量球。他可以自由控制他每次跳的高度，接着他跳起把这个高度以下的能量球都吃了，他便能获得能量球内的能量，接着吃到的能量球消失。他不会轻功，也不会二段跳，所以他不能因新吃到的能量而变化此次跳跃的高度。并且他还是生活在地球上的，所以每次跳完都会掉下来。</p>
@@ -137,6 +151,10 @@
 <p>非常<del>快乐</del>遗憾的<kbd>TLE</kbd>了。</p>
 </li>
 <li><p><code>dp</code></p>
+<p>那么<code>dfs</code><kbd>TLE</kbd>了，就想到了<code>dp</code>。</p>
+<p><span class="heimu" title="鲁迅：我没说过这话，不过确实在理">一见dfs，立刻想到TLE，立刻想到记忆化搜索，立刻想到dp。OI人的想像惟在这一层能够如此跃进。——鲁迅</span></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;          // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;          // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;         // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;        // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;        // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;        // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;        // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;       // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;       // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;       // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bitset&gt;       // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;      // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;      // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;     // 库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;    // 库</span></span></span><br><span class="line"><span class="comment">// #include &lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> N, M, a[<span class="number">2000001</span>]; <span class="comment">// a 数组记录能量</span></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">2000001</span>]; <span class="comment">// dp[i] = 跳到第 i 层需要跳的高度(几个 100 米)</span></span><br><span class="line"><span class="keyword">int</span> highest = <span class="number">0</span>; <span class="comment">// 记录已经跳到的最高高度(下面都没有能量球了)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a)); <span class="comment">// 数组清零</span></span><br><span class="line">    <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp)); <span class="comment">// 数组清零</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;N, &amp;M);</span><br><span class="line">    highest = <span class="number">0</span>;</span><br><span class="line">    a[<span class="number">0</span>] = M; <span class="comment">// M 相当于在第 0 个 100 米(地面上)的一个能量球</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, a + i);</span><br><span class="line">        a[i] += a[i - <span class="number">1</span>]; <span class="comment">// 前缀和(因为要求 a[i]+...+a[j])</span></span><br><span class="line">        dp[i] = i; <span class="comment">// dp 数组初始化, 跳到第 i 层需要跳的最小高度</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= N; i++) <span class="comment">// 循环尝试第 i 层</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t = a[i] / <span class="number">100</span>; <span class="comment">// 目前的能量能调到的最高层数</span></span><br><span class="line">        <span class="keyword">if</span> (t &gt;= N) <span class="comment">// 能一次跳完尽量一次调完(贪心?)</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">printf</span>(<span class="string">"%d"</span>, a[N] - (dp[N] + dp[i]) * <span class="number">100</span>) &amp; <span class="number">0</span>; <span class="comment">// 由于必定有解, 所以这一句必定会执行</span></span><br><span class="line">                                                                   <span class="comment">// 相当于 printf("%d", 一坨); return 0;</span></span><br><span class="line">        <span class="keyword">if</span> (t &gt; highest) <span class="comment">// 如果能跳到的最高层数比曾经调到的最高层数高(也就是能吃到至少一个球)</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = t; j &gt; highest; j--) <span class="comment">// 循环枚举跳第 j 层</span></span><br><span class="line">            &#123;</span><br><span class="line">                dp[j] += dp[i]; <span class="comment">// 一共跳了哪几层, 总共多少个 100 米</span></span><br><span class="line">                a[j] -= dp[j] * <span class="number">100</span>; <span class="comment">// 跳完之后还有多少能量</span></span><br><span class="line">            &#125;</span><br><span class="line">            highest = t; <span class="comment">// 更新最高高度</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 
@@ -149,7 +167,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://orz001.github.io/OIblog/2020/02/27/66code-contest1055-ProblemA/" data-id="ck76zm7xi0000kxqv87m63iol" class="article-share-link">
+      <a data-url="https://orz001.github.io/OIblog/2020/02/27/66code-contest1055-ProblemA/" data-id="ck771c63e00000gqvfg1sa4pt" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
